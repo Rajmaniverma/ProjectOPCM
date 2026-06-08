@@ -1,0 +1,17 @@
+{
+  "supplier": "Supplier A",
+  "totalPurchaseOrders": 1,
+  "processInstances": {
+    "PO001": [
+      "Create Purchase Order",
+      "Approve Purchase Order",
+      "Dispatch Shipment",
+      "Generate Invoice"
+    ]
+  },
+  "transitions": {
+    "Create Purchase Order -> Approve Purchase Order": 1,
+    "Approve Purchase Order -> Dispatch Shipment": 1,
+    "Dispatch Shipment -> Generate Invoice": 1
+  }
+}

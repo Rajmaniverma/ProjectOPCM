@@ -1,0 +1,58 @@
+{
+  "supplier": "Supplier A",
+  "purchaseOrders": [
+    {
+      "poId": "PO001",
+      "productId": "P001",
+      "product": "Steel",
+      "quantity": 100,
+      "createdAt": "2026-06-01T09:00:00Z",
+      "approvedAt": "2026-06-02T10:00:00Z",
+      "status": "Approved"
+    }
+  ],
+  "shipments": [
+    {
+      "shipmentId": "S001",
+      "poId": "PO001",
+      "dispatchDate": "2026-06-03T08:00:00Z",
+      "deliveryDate": "2026-06-05T16:00:00Z",
+      "status": "Delivered"
+    }
+  ],
+  "invoices": [
+    {
+      "invoiceId": "INV001",
+      "poId": "PO001",
+      "amount": 5000,
+      "issueDate": "2026-06-05T17:00:00Z",
+      "status": "Paid"
+    }
+  ],
+  "events": [
+    {
+      "eventId": "E001",
+      "activity": "Create Purchase Order",
+      "timestamp": "2026-06-01T09:00:00Z",
+      "objects": ["PO001", "P001"]
+    },
+    {
+      "eventId": "E002",
+      "activity": "Approve Purchase Order",
+      "timestamp": "2026-06-02T10:00:00Z",
+      "objects": ["PO001"]
+    },
+    {
+      "eventId": "E003",
+      "activity": "Dispatch Shipment",
+      "timestamp": "2026-06-03T08:00:00Z",
+      "objects": ["PO001", "S001"]
+    },
+    {
+      "eventId": "E004",
+      "activity": "Generate Invoice",
+      "timestamp": "2026-06-05T17:00:00Z",
+      "objects": ["PO001", "INV001"]
+    }
+  ]
+}

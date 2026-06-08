@@ -1,0 +1,10 @@
+{
+  "supplier": "Supplier A",
+  "totalOrders": 1,
+  "totalShipments": 1,
+  "totalInvoices": 1,
+  "delayedShipments": 0,
+  "pendingInvoices": 0,
+  "avgLeadTime": 1.04,
+  "supplierScore": 100
+}

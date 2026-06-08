@@ -1,0 +1,155 @@
+{
+  "ocel:global-log": {
+    "version": "OCEL 2.0",
+    "supplier": "Supplier C",
+    "generatedAt": "2026-06-08T10:21:56.294Z"
+  },
+  "ocel:events": [
+    {
+      "ocel:eid": "E201",
+      "ocel:activity": "Create Purchase Order",
+      "ocel:timestamp": "2026-06-01T09:00:00Z",
+      "ocel:omap": [
+        "PO201",
+        "P201"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E202",
+      "ocel:activity": "Approve Purchase Order",
+      "ocel:timestamp": "2026-06-04T14:00:00Z",
+      "ocel:omap": [
+        "PO201"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E203",
+      "ocel:activity": "Dispatch Shipment",
+      "ocel:timestamp": "2026-06-05T08:00:00Z",
+      "ocel:omap": [
+        "PO201",
+        "S201"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E204",
+      "ocel:activity": "Deliver Shipment",
+      "ocel:timestamp": "2026-06-12T18:00:00Z",
+      "ocel:omap": [
+        "PO201",
+        "S201"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E205",
+      "ocel:activity": "Generate Invoice",
+      "ocel:timestamp": "2026-06-13T10:00:00Z",
+      "ocel:omap": [
+        "PO201",
+        "INV201"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E206",
+      "ocel:activity": "Create Purchase Order",
+      "ocel:timestamp": "2026-06-03T10:00:00Z",
+      "ocel:omap": [
+        "PO202",
+        "P202"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E207",
+      "ocel:activity": "Approve Purchase Order",
+      "ocel:timestamp": "2026-06-06T16:00:00Z",
+      "ocel:omap": [
+        "PO202"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E208",
+      "ocel:activity": "Dispatch Shipment",
+      "ocel:timestamp": "2026-06-07T09:00:00Z",
+      "ocel:omap": [
+        "PO202",
+        "S202"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E209",
+      "ocel:activity": "Deliver Shipment",
+      "ocel:timestamp": "2026-06-15T17:00:00Z",
+      "ocel:omap": [
+        "PO202",
+        "S202"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E210",
+      "ocel:activity": "Generate Invoice",
+      "ocel:timestamp": "2026-06-16T11:00:00Z",
+      "ocel:omap": [
+        "PO202",
+        "INV202"
+      ],
+      "ocel:vmap": {}
+    }
+  ],
+  "ocel:objects": {
+    "PO201": {
+      "ocel:type": "PurchaseOrder",
+      "productId": "P201",
+      "product": "Electronic Chips",
+      "quantity": 300,
+      "status": "Approved",
+      "createdAt": "2026-06-01T09:00:00Z",
+      "approvedAt": "2026-06-04T14:00:00Z"
+    },
+    "PO202": {
+      "ocel:type": "PurchaseOrder",
+      "productId": "P202",
+      "product": "Plastic Components",
+      "quantity": 400,
+      "status": "Approved",
+      "createdAt": "2026-06-03T10:00:00Z",
+      "approvedAt": "2026-06-06T16:00:00Z"
+    },
+    "S201": {
+      "ocel:type": "Shipment",
+      "poId": "PO201",
+      "dispatchDate": "2026-06-05T08:00:00Z",
+      "deliveryDate": "2026-06-12T18:00:00Z",
+      "status": "Delayed"
+    },
+    "S202": {
+      "ocel:type": "Shipment",
+      "poId": "PO202",
+      "dispatchDate": "2026-06-07T09:00:00Z",
+      "deliveryDate": "2026-06-15T17:00:00Z",
+      "status": "Delayed"
+    },
+    "INV201": {
+      "ocel:type": "Invoice",
+      "poId": "PO201",
+      "amount": 25000,
+      "issueDate": "2026-06-13T10:00:00Z",
+      "status": "Pending"
+    },
+    "INV202": {
+      "ocel:type": "Invoice",
+      "poId": "PO202",
+      "amount": 32000,
+      "issueDate": "2026-06-16T11:00:00Z",
+      "status": "Pending"
+    }
+  }
+}

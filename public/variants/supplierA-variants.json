@@ -1,0 +1,12 @@
+{
+  "supplier": "Supplier A",
+  "totalVariants": 1,
+  "mostCommonVariant": "Create Purchase Order -> Approve Purchase Order -> Dispatch Shipment -> Generate Invoice",
+  "mostCommonCount": 1,
+  "variants": [
+    {
+      "path": "Create Purchase Order -> Approve Purchase Order -> Dispatch Shipment -> Generate Invoice",
+      "count": 1
+    }
+  ]
+}

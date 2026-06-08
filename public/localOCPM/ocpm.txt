@@ -1,0 +1,1 @@
+Object-Centric Process Mining (OCPM) is an advanced form of process mining that analyzes business processes involving multiple related objects such as purchase orders, shipments, invoices, products, and suppliers.

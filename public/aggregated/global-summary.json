@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-08T11:08:20.790Z",
+  "totalSuppliers": 3,
+  "networkKPIs": {
+    "totalOrders": 5,
+    "totalShipments": 5,
+    "totalInvoices": 5,
+    "delayedShipments": 3,
+    "pendingInvoices": 3,
+    "averageLeadTime": 1.78,
+    "averageSupplierScore": 85
+  },
+  "supplierRankings": [
+    {
+      "supplier": "Supplier A",
+      "score": 100,
+      "avgLeadTime": 1.04
+    },
+    {
+      "supplier": "Supplier B",
+      "score": 85,
+      "avgLeadTime": 1.08
+    },
+    {
+      "supplier": "Supplier C",
+      "score": 70,
+      "avgLeadTime": 3.23
+    }
+  ],
+  "bottlenecks": [
+    {
+      "supplier": "Supplier B",
+      "delayedShipments": 1,
+      "pendingInvoices": 1
+    },
+    {
+      "supplier": "Supplier C",
+      "delayedShipments": 2,
+      "pendingInvoices": 2
+    }
+  ]
+}

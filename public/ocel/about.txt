@@ -1,0 +1,1 @@
+, OCEL 2.0 allows one event to be related to multiple business objects such as orders, shipments, invoices, products, and suppliers

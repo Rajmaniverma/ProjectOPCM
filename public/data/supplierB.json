@@ -1,0 +1,117 @@
+{
+  "supplier": "Supplier B",
+  "purchaseOrders": [
+    {
+      "poId": "PO101",
+      "productId": "P101",
+      "product": "Aluminium Sheets",
+      "quantity": 200,
+      "createdAt": "2026-06-02T08:30:00Z",
+      "approvedAt": "2026-06-03T11:00:00Z",
+      "status": "Approved"
+    },
+    {
+      "poId": "PO102",
+      "productId": "P102",
+      "product": "Copper Wire",
+      "quantity": 500,
+      "createdAt": "2026-06-04T09:15:00Z",
+      "approvedAt": "2026-06-05T10:45:00Z",
+      "status": "Approved"
+    }
+  ],
+  "shipments": [
+    {
+      "shipmentId": "S101",
+      "poId": "PO101",
+      "dispatchDate": "2026-06-04T07:00:00Z",
+      "deliveryDate": "2026-06-07T15:00:00Z",
+      "status": "Delivered"
+    },
+    {
+      "shipmentId": "S102",
+      "poId": "PO102",
+      "dispatchDate": "2026-06-06T08:00:00Z",
+      "deliveryDate": "2026-06-10T17:30:00Z",
+      "status": "Delayed"
+    }
+  ],
+  "invoices": [
+    {
+      "invoiceId": "INV101",
+      "poId": "PO101",
+      "amount": 12000,
+      "issueDate": "2026-06-07T16:00:00Z",
+      "status": "Paid"
+    },
+    {
+      "invoiceId": "INV102",
+      "poId": "PO102",
+      "amount": 18000,
+      "issueDate": "2026-06-10T18:00:00Z",
+      "status": "Pending"
+    }
+  ],
+  "events": [
+    {
+      "eventId": "E101",
+      "activity": "Create Purchase Order",
+      "timestamp": "2026-06-02T08:30:00Z",
+      "objects": ["PO101", "P101"]
+    },
+    {
+      "eventId": "E102",
+      "activity": "Approve Purchase Order",
+      "timestamp": "2026-06-03T11:00:00Z",
+      "objects": ["PO101"]
+    },
+    {
+      "eventId": "E103",
+      "activity": "Dispatch Shipment",
+      "timestamp": "2026-06-04T07:00:00Z",
+      "objects": ["PO101", "S101"]
+    },
+    {
+      "eventId": "E104",
+      "activity": "Deliver Shipment",
+      "timestamp": "2026-06-07T15:00:00Z",
+      "objects": ["PO101", "S101"]
+    },
+    {
+      "eventId": "E105",
+      "activity": "Generate Invoice",
+      "timestamp": "2026-06-07T16:00:00Z",
+      "objects": ["PO101", "INV101"]
+    },
+    {
+      "eventId": "E106",
+      "activity": "Create Purchase Order",
+      "timestamp": "2026-06-04T09:15:00Z",
+      "objects": ["PO102", "P102"]
+    },
+    {
+      "eventId": "E107",
+      "activity": "Approve Purchase Order",
+      "timestamp": "2026-06-05T10:45:00Z",
+      "objects": ["PO102"]
+    },
+    {
+      "eventId": "E108",
+      "activity": "Dispatch Shipment",
+      "timestamp": "2026-06-06T08:00:00Z",
+      "objects": ["PO102", "S102"]
+    },
+    {
+      "eventId": "E109",
+      "activity": "Deliver Shipment",
+      "timestamp": "2026-06-10T17:30:00Z",
+      "objects": ["PO102", "S102"]
+    },
+    {
+      "eventId": "E110",
+      "activity": "Generate Invoice",
+      "timestamp": "2026-06-10T18:00:00Z",
+      "objects": ["PO102", "INV102"]
+    }
+  ]
+}

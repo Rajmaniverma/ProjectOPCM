@@ -1,65 +1,430 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+
+export default function Dashboard() {
+  const [summary, setSummary] = useState(null);
+  const [variants, setVariants] = useState(null);
+
+  useEffect(() => {
+    async function loadData() {
+      const summaryData = await fetch(
+        "/aggregated/global-summary.json"
+      ).then((res) => res.json());
+
+      const variantData = await fetch(
+        "/aggregated/global-variants.json"
+      ).then((res) => res.json());
+
+      setSummary(summaryData);
+      setVariants(variantData);
+    }
+
+    loadData();
+  }, []);
+
+  if (!summary || !variants) {
+    return (
+      <div
+        style={{
+          background: "#0f172a",
+          color: "white",
+          minHeight: "100vh",
+          padding: "40px",
+        }}
+      >
+        Loading Dashboard...
+      </div>
+    );
+  }
+
+  const kpis = summary.networkKPIs;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div
+      style={{
+  minHeight: "100vh",
+  background:
+    "linear-gradient(135deg,#020617,#0f172a,#111827)",
+  color: "white",
+  padding: "40px",
+  fontFamily:
+    "Inter, Segoe UI, Arial, sans-serif",
+}}
+    >
+      <h1
+        style={{
+          fontSize: "40px",
+          marginBottom: "10px",
+        }}
+      >
+        Federated OCPM Dashboard
+      </h1>
+
+      <p style={{ color: "#94a3b8" }}>
+        Multi-Tier Supply Chain Process Mining
+      </p>
+
+      {/* KPI CARDS */}
+
+      <h2 style={{ marginTop: "40px" }}>
+        Global KPIs(Key Performance Indicator)
+      </h2>
+
+      <div
+        style={{
+  display: "grid",
+  gridTemplateColumns:
+    "repeat(auto-fit,minmax(250px,1fr))",
+  gap: "24px",
+  marginTop: "24px",
+}}
+      >
+        <Card
+          title="Total Orders"
+          value={kpis.totalOrders}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+
+        <Card
+          title="Total Shipments"
+          value={kpis.totalShipments}
+        />
+
+        <Card
+          title="Total Invoices"
+          value={kpis.totalInvoices}
+        />
+
+        <Card
+          title="Delayed Shipments"
+          value={kpis.delayedShipments}
+        />
+
+        <Card
+          title="Pending Invoices"
+          value={kpis.pendingInvoices}
+        />
+
+        <Card
+          title="Avg Lead Time"
+          value={kpis.averageLeadTime}
+        />
+
+        <Card
+          title="Supplier Score"
+          value={kpis.averageSupplierScore}
+        />
+
+        <Card
+          title="Total Suppliers"
+          value={summary.totalSuppliers}
+        />
+      </div>
+
+      {/* RANKINGS */}
+
+      <h2 style={{ marginTop: "50px" }}>
+        Supplier Rankings
+      </h2>
+
+      <table
+        style={{
+          width: "100%",
+          background: "#1e293b",
+          marginTop: "20px",
+          borderCollapse: "collapse",
+        }}
+      >
+        <thead>
+          <tr>
+            <th style={th}>Rank</th>
+            <th style={th}>Supplier</th>
+            <th style={th}>Score</th>
+            <th style={th}>Lead Time</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {summary.supplierRankings.map(
+            (supplier, index) => (
+              <tr key={index}>
+                <td style={td}>{index + 1}</td>
+                <td style={td}>
+                  {supplier.supplier}
+                </td>
+                <td style={td}>
+                  {supplier.score}
+                </td>
+                <td style={td}>
+                  {supplier.avgLeadTime}
+                </td>
+              </tr>
+            )
+          )}
+        </tbody>
+      </table>
+
+      {/* BOTTLENECKS */}
+
+      <h2 style={{ marginTop: "50px" }}>
+        Bottleneck Detection
+      </h2>
+
+      <div
+        style={{
+          display: "grid",
+          gap: "15px",
+          marginTop: "20px",
+        }}
+      >
+        {summary.bottlenecks.map(
+          (item, index) => (
+            <div
+              key={index}
+              style={{
+                background: "#7f1d1d",
+                padding: "20px",
+                borderRadius: "10px",
+              }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <h3>{item.supplier}</h3>
+
+              <p>
+                Delayed Shipments:
+                {" "}
+                {item.delayedShipments}
+              </p>
+
+              <p>
+                Pending Invoices:
+                {" "}
+                {item.pendingInvoices}
+              </p>
+            </div>
+          )
+        )}
+      </div>
+
+      {/* PROCESS VARIANTS */}
+
+      <h2 style={{ marginTop: "50px" }}>
+        Process Variant Analysis
+      </h2>
+
+      <div
+        style={{
+          background: "#1e293b",
+          padding: "20px",
+          borderRadius: "10px",
+          marginTop: "20px",
+        }}
+      >
+        <h3>
+          Most Common Variant
+        </h3>
+
+        <p
+          style={{
+            color: "#38bdf8",
+            wordBreak: "break-word",
+          }}
+        >
+          {variants.mostCommonVariant}
+        </p>
+
+        <h3
+          style={{
+            marginTop: "25px",
+          }}
+        >
+          Variant Frequency
+        </h3>
+
+        {variants.variantFrequency.map(
+          (variant, index) => (
+            <div
+              key={index}
+              style={{
+                marginBottom: "20px",
+              }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+              <div>
+                {variant.path}
+              </div>
+
+              <div
+                style={{
+                  background: "#334155",
+                  height: "18px",
+                  marginTop: "5px",
+                  borderRadius: "6px",
+                }}
+              >
+                <div
+                  style={{
+                    width:
+                      variant.count *
+                        20 +
+                      "%",
+                    height: "100%",
+                    background:
+                      "#06b6d4",
+                    borderRadius:
+                      "6px",
+                  }}
+                />
+              </div>
+
+              <small>
+                Count:
+                {" "}
+                {variant.count}
+              </small>
+            </div>
+          )
+        )}
+      </div>
+
+      {/* PROCESS FLOW */}
+
+      <h2 style={{ marginTop: "50px" }}>
+        Standard Supply Chain Flow
+      </h2>
+
+      <div
+        style={{
+          background: "#1e293b",
+          padding: "30px",
+          borderRadius: "10px",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "15px",
+          marginTop: "20px",
+        }}
+      >
+        <FlowBox text="Create PO" />
+        <FlowArrow />
+        <FlowBox text="Approve PO" />
+        <FlowArrow />
+        <FlowBox text="Dispatch Shipment" />
+        <FlowArrow />
+        <FlowBox text="Deliver Shipment" />
+        <FlowArrow />
+        <FlowBox text="Generate Invoice" />
+      </div>
+
+      {/* FEDERATED WORKFLOW */}
+
+      <h2 style={{ marginTop: "50px" }}>
+        Federated OCPM Architecture
+      </h2>
+
+      <div
+        style={{
+          background: "#1e293b",
+          padding: "20px",
+          borderRadius: "10px",
+          lineHeight: 2,
+        }}
+      >
+        Supplier A → Local OCPM → Federated Node
+
+        <br />
+
+        Supplier B → Local OCPM → Federated Node
+
+        <br />
+
+        Supplier C → Local OCPM → Federated Node
+
+        <br />
+        <br />
+
+        Federated Nodes → Aggregator →
+        Global Process Model
+      </div>
     </div>
   );
 }
+
+function Card({ title, value }) {
+  return (
+    <div
+      style={{
+        background: "rgba(30,41,59,0.75)",
+        backdropFilter: "blur(12px)",
+        border: "1px solid rgba(255,255,255,0.08)",
+        padding: "24px",
+        borderRadius: "18px",
+        boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+      }}
+    >
+      <div
+        style={{
+          color: "#94a3b8",
+          fontSize: "14px",
+          fontWeight: "600",
+        }}
+      >
+        {title}
+      </div>
+
+      <div
+        style={{
+          fontSize: "38px",
+          fontWeight: "800",
+          marginTop: "12px",
+          color: "#38bdf8",
+        }}
+      >
+        {value}
+      </div>
+    </div>
+  );
+}
+function FlowBox({ text }) {
+  return (
+    <div
+      style={{
+        background:
+          "linear-gradient(135deg,#0284c7,#06b6d4)",
+        padding: "16px 24px",
+        borderRadius: "14px",
+        fontWeight: "700",
+        boxShadow:
+          "0 6px 16px rgba(6,182,212,.35)",
+      }}
+    >
+      {text}
+    </div>
+  );
+}
+
+function FlowArrow() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        fontSize: "28px",
+        fontWeight: "bold",
+        color: "#38bdf8",
+      }}
+    >
+      →
+    </div>
+  );
+}
+
+const th = {
+  padding: "16px",
+  background: "#1e293b",
+  color: "#38bdf8",
+  fontWeight: "700",
+};
+const td = {
+  padding: "16px",
+  textAlign: "center",
+  borderBottom:
+    "1px solid rgba(255,255,255,0.06)",
+};

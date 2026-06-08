@@ -1,0 +1,14 @@
+{
+  "totalGlobalVariants": 2,
+  "mostCommonVariant": "Create Purchase Order -> Approve Purchase Order -> Dispatch Shipment -> Deliver Shipment -> Generate Invoice",
+  "variantFrequency": [
+    {
+      "path": "Create Purchase Order -> Approve Purchase Order -> Dispatch Shipment -> Deliver Shipment -> Generate Invoice",
+      "count": 4
+    },
+    {
+      "path": "Create Purchase Order -> Approve Purchase Order -> Dispatch Shipment -> Generate Invoice",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "supplier": "Supplier C",
+  "totalPurchaseOrders": 2,
+  "processInstances": {
+    "PO201": [
+      "Create Purchase Order",
+      "Approve Purchase Order",
+      "Dispatch Shipment",
+      "Deliver Shipment",
+      "Generate Invoice"
+    ],
+    "PO202": [
+      "Create Purchase Order",
+      "Approve Purchase Order",
+      "Dispatch Shipment",
+      "Deliver Shipment",
+      "Generate Invoice"
+    ]
+  },
+  "transitions": {
+    "Create Purchase Order -> Approve Purchase Order": 2,
+    "Approve Purchase Order -> Dispatch Shipment": 2,
+    "Dispatch Shipment -> Deliver Shipment": 2,
+    "Deliver Shipment -> Generate Invoice": 2
+  }
+}

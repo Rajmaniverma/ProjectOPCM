@@ -1,0 +1,155 @@
+{
+  "ocel:global-log": {
+    "version": "OCEL 2.0",
+    "supplier": "Supplier B",
+    "generatedAt": "2026-06-08T10:21:56.293Z"
+  },
+  "ocel:events": [
+    {
+      "ocel:eid": "E101",
+      "ocel:activity": "Create Purchase Order",
+      "ocel:timestamp": "2026-06-02T08:30:00Z",
+      "ocel:omap": [
+        "PO101",
+        "P101"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E102",
+      "ocel:activity": "Approve Purchase Order",
+      "ocel:timestamp": "2026-06-03T11:00:00Z",
+      "ocel:omap": [
+        "PO101"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E103",
+      "ocel:activity": "Dispatch Shipment",
+      "ocel:timestamp": "2026-06-04T07:00:00Z",
+      "ocel:omap": [
+        "PO101",
+        "S101"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E104",
+      "ocel:activity": "Deliver Shipment",
+      "ocel:timestamp": "2026-06-07T15:00:00Z",
+      "ocel:omap": [
+        "PO101",
+        "S101"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E105",
+      "ocel:activity": "Generate Invoice",
+      "ocel:timestamp": "2026-06-07T16:00:00Z",
+      "ocel:omap": [
+        "PO101",
+        "INV101"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E106",
+      "ocel:activity": "Create Purchase Order",
+      "ocel:timestamp": "2026-06-04T09:15:00Z",
+      "ocel:omap": [
+        "PO102",
+        "P102"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E107",
+      "ocel:activity": "Approve Purchase Order",
+      "ocel:timestamp": "2026-06-05T10:45:00Z",
+      "ocel:omap": [
+        "PO102"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E108",
+      "ocel:activity": "Dispatch Shipment",
+      "ocel:timestamp": "2026-06-06T08:00:00Z",
+      "ocel:omap": [
+        "PO102",
+        "S102"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E109",
+      "ocel:activity": "Deliver Shipment",
+      "ocel:timestamp": "2026-06-10T17:30:00Z",
+      "ocel:omap": [
+        "PO102",
+        "S102"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E110",
+      "ocel:activity": "Generate Invoice",
+      "ocel:timestamp": "2026-06-10T18:00:00Z",
+      "ocel:omap": [
+        "PO102",
+        "INV102"
+      ],
+      "ocel:vmap": {}
+    }
+  ],
+  "ocel:objects": {
+    "PO101": {
+      "ocel:type": "PurchaseOrder",
+      "productId": "P101",
+      "product": "Aluminium Sheets",
+      "quantity": 200,
+      "status": "Approved",
+      "createdAt": "2026-06-02T08:30:00Z",
+      "approvedAt": "2026-06-03T11:00:00Z"
+    },
+    "PO102": {
+      "ocel:type": "PurchaseOrder",
+      "productId": "P102",
+      "product": "Copper Wire",
+      "quantity": 500,
+      "status": "Approved",
+      "createdAt": "2026-06-04T09:15:00Z",
+      "approvedAt": "2026-06-05T10:45:00Z"
+    },
+    "S101": {
+      "ocel:type": "Shipment",
+      "poId": "PO101",
+      "dispatchDate": "2026-06-04T07:00:00Z",
+      "deliveryDate": "2026-06-07T15:00:00Z",
+      "status": "Delivered"
+    },
+    "S102": {
+      "ocel:type": "Shipment",
+      "poId": "PO102",
+      "dispatchDate": "2026-06-06T08:00:00Z",
+      "deliveryDate": "2026-06-10T17:30:00Z",
+      "status": "Delayed"
+    },
+    "INV101": {
+      "ocel:type": "Invoice",
+      "poId": "PO101",
+      "amount": 12000,
+      "issueDate": "2026-06-07T16:00:00Z",
+      "status": "Paid"
+    },
+    "INV102": {
+      "ocel:type": "Invoice",
+      "poId": "PO102",
+      "amount": 18000,
+      "issueDate": "2026-06-10T18:00:00Z",
+      "status": "Pending"
+    }
+  }
+}

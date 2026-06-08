@@ -1,0 +1,73 @@
+{
+  "ocel:global-log": {
+    "version": "OCEL 2.0",
+    "supplier": "Supplier A",
+    "generatedAt": "2026-06-08T10:21:56.290Z"
+  },
+  "ocel:events": [
+    {
+      "ocel:eid": "E001",
+      "ocel:activity": "Create Purchase Order",
+      "ocel:timestamp": "2026-06-01T09:00:00Z",
+      "ocel:omap": [
+        "PO001",
+        "P001"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E002",
+      "ocel:activity": "Approve Purchase Order",
+      "ocel:timestamp": "2026-06-02T10:00:00Z",
+      "ocel:omap": [
+        "PO001"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E003",
+      "ocel:activity": "Dispatch Shipment",
+      "ocel:timestamp": "2026-06-03T08:00:00Z",
+      "ocel:omap": [
+        "PO001",
+        "S001"
+      ],
+      "ocel:vmap": {}
+    },
+    {
+      "ocel:eid": "E004",
+      "ocel:activity": "Generate Invoice",
+      "ocel:timestamp": "2026-06-05T17:00:00Z",
+      "ocel:omap": [
+        "PO001",
+        "INV001"
+      ],
+      "ocel:vmap": {}
+    }
+  ],
+  "ocel:objects": {
+    "PO001": {
+      "ocel:type": "PurchaseOrder",
+      "productId": "P001",
+      "product": "Steel",
+      "quantity": 100,
+      "status": "Approved",
+      "createdAt": "2026-06-01T09:00:00Z",
+      "approvedAt": "2026-06-02T10:00:00Z"
+    },
+    "S001": {
+      "ocel:type": "Shipment",
+      "poId": "PO001",
+      "dispatchDate": "2026-06-03T08:00:00Z",
+      "deliveryDate": "2026-06-05T16:00:00Z",
+      "status": "Delivered"
+    },
+    "INV001": {
+      "ocel:type": "Invoice",
+      "poId": "PO001",
+      "amount": 5000,
+      "issueDate": "2026-06-05T17:00:00Z",
+      "status": "Paid"
+    }
+  }
+}

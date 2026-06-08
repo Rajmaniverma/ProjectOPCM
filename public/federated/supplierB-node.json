@@ -1,0 +1,14 @@
+{
+  "nodeId": "supplier-b-node",
+  "supplier": "Supplier B",
+  "generatedAt": "2026-06-08T10:45:39.520Z",
+  "kpis": {
+    "totalOrders": 2,
+    "totalShipments": 2,
+    "totalInvoices": 2,
+    "delayedShipments": 1,
+    "pendingInvoices": 1,
+    "avgLeadTime": 1.08,
+    "supplierScore": 85
+  }
+}

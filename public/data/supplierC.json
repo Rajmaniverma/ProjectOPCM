@@ -1,0 +1,118 @@
+{
+  "supplier": "Supplier C",
+  "purchaseOrders": [
+    {
+      "poId": "PO201",
+      "productId": "P201",
+      "product": "Electronic Chips",
+      "quantity": 300,
+      "createdAt": "2026-06-01T09:00:00Z",
+      "approvedAt": "2026-06-04T14:00:00Z",
+      "status": "Approved"
+    },
+    {
+      "poId": "PO202",
+      "productId": "P202",
+      "product": "Plastic Components",
+      "quantity": 400,
+      "createdAt": "2026-06-03T10:00:00Z",
+      "approvedAt": "2026-06-06T16:00:00Z",
+      "status": "Approved"
+    }
+  ],
+  "shipments": [
+    {
+      "shipmentId": "S201",
+      "poId": "PO201",
+      "dispatchDate": "2026-06-05T08:00:00Z",
+      "deliveryDate": "2026-06-12T18:00:00Z",
+      "status": "Delayed"
+    },
+    {
+      "shipmentId": "S202",
+      "poId": "PO202",
+      "dispatchDate": "2026-06-07T09:00:00Z",
+      "deliveryDate": "2026-06-15T17:00:00Z",
+      "status": "Delayed"
+    }
+  ],
+  "invoices": [
+    {
+      "invoiceId": "INV201",
+      "poId": "PO201",
+      "amount": 25000,
+      "issueDate": "2026-06-13T10:00:00Z",
+      "status": "Pending"
+    },
+    {
+      "invoiceId": "INV202",
+      "poId": "PO202",
+      "amount": 32000,
+      "issueDate": "2026-06-16T11:00:00Z",
+      "status": "Pending"
+    }
+  ],
+  "events": [
+    {
+      "eventId": "E201",
+      "activity": "Create Purchase Order",
+      "timestamp": "2026-06-01T09:00:00Z",
+      "objects": ["PO201", "P201"]
+    },
+    {
+      "eventId": "E202",
+      "activity": "Approve Purchase Order",
+      "timestamp": "2026-06-04T14:00:00Z",
+      "objects": ["PO201"]
+    },
+    {
+      "eventId": "E203",
+      "activity": "Dispatch Shipment",
+      "timestamp": "2026-06-05T08:00:00Z",
+      "objects": ["PO201", "S201"]
+    },
+    {
+      "eventId": "E204",
+      "activity": "Deliver Shipment",
+      "timestamp": "2026-06-12T18:00:00Z",
+      "objects": ["PO201", "S201"]
+    },
+    {
+      "eventId": "E205",
+      "activity": "Generate Invoice",
+      "timestamp": "2026-06-13T10:00:00Z",
+      "objects": ["PO201", "INV201"]
+    },
+
+    {
+      "eventId": "E206",
+      "activity": "Create Purchase Order",
+      "timestamp": "2026-06-03T10:00:00Z",
+      "objects": ["PO202", "P202"]
+    },
+    {
+      "eventId": "E207",
+      "activity": "Approve Purchase Order",
+      "timestamp": "2026-06-06T16:00:00Z",
+      "objects": ["PO202"]
+    },
+    {
+      "eventId": "E208",
+      "activity": "Dispatch Shipment",
+      "timestamp": "2026-06-07T09:00:00Z",
+      "objects": ["PO202", "S202"]
+    },
+    {
+      "eventId": "E209",
+      "activity": "Deliver Shipment",
+      "timestamp": "2026-06-15T17:00:00Z",
+      "objects": ["PO202", "S202"]
+    },
+    {
+      "eventId": "E210",
+      "activity": "Generate Invoice",
+      "timestamp": "2026-06-16T11:00:00Z",
+      "objects": ["PO202", "INV202"]
+    }
+  ]
+}

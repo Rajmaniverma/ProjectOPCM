@@ -1,0 +1,14 @@
+{
+  "nodeId": "supplier-c-node",
+  "supplier": "Supplier C",
+  "generatedAt": "2026-06-08T10:45:39.532Z",
+  "kpis": {
+    "totalOrders": 2,
+    "totalShipments": 2,
+    "totalInvoices": 2,
+    "delayedShipments": 2,
+    "pendingInvoices": 2,
+    "avgLeadTime": 3.23,
+    "supplierScore": 70
+  }
+}
