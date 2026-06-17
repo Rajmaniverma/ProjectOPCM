@@ -37,7 +37,7 @@ export function generateOCEL(data) {
       };
     });
   }
-
+  
   // Invoices
   if (data.invoices) {
     data.invoices.forEach((invoice) => {
