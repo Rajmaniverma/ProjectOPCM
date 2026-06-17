@@ -47,7 +47,7 @@ useEffect(() => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [supplierOCPM]);
 useEffect(() => {
   fetch("/aggregated/global-summary.json")
     .then((res) => res.json())
