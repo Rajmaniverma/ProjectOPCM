@@ -16,7 +16,7 @@ const supplier = searchParams.get("Supplier");
 
 useEffect( () => {
   let file = "";
-  let variant = " ";
+  let variant = "";
 
   if (supplier === "Supplier A") {
     file = "/localOCPM/supplierA-localOCPM.json";
@@ -42,12 +42,14 @@ useEffect( () => {
     .then((data)=> setFlow(data))
     .catch((err)=> console.log(err))
   }
-},[]);
+},[supplier]);
 useEffect(() => {
   console.log("supplier =", supplier);
   console.log("supplierData =", supplierData);
 }, [supplierData]);
-
+if (!supplierData || !Flow) {
+  return <div>Loading...</div>;
+}
   return (
     
       <div
@@ -208,45 +210,36 @@ useEffect(() => {
         </h3>
 
     
-            <div
-              
-              style={{
-                marginBottom: "20px",
-              }}
-            >
-              <div>
-                {Flow?.variants.path}
-              </div>
+{Flow?.variants?.map((variant, index) => (
+  <div
+    key={index}
+    style={{
+      marginBottom: "20px",
+    }}
+  >
+    <div>{variant.path}</div>
 
-              <div
-                style={{
-                  background: "#334155",
-                  height: "18px",
-                  marginTop: "5px",
-                  borderRadius: "6px",
-                }}
-              >
-                <div
-                  style={{
-                    width:
-                      Flow?.variants.count *
-                        20 +
-                      "%",
-                    height: "100%",
-                    background:
-                      "#06b6d4",
-                    borderRadius:
-                      "6px",
-                  }}
-                />
-              </div>
+    <div
+      style={{
+        background: "#334155",
+        height: "18px",
+        marginTop: "5px",
+        borderRadius: "6px",
+      }}
+    >
+      <div
+        style={{
+          width: `${variant.count * 20}%`,
+          height: "100%",
+          background: "#06b6d4",
+          borderRadius: "6px",
+        }}
+      />
+    </div>
 
-              <small>
-                Count:
-                {" "}
-                {Flow?.mostCommonCount}
-              </small>
-            </div>
+    <small>Count: {variant.count}</small>
+  </div>
+))}
        
       </div>
 {/* asdf */}
