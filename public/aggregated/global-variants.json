@@ -4,11 +4,11 @@
   "variantFrequency": [
     {
       "path": "Create Purchase Order -> Approve Purchase Order -> Dispatch Shipment -> Deliver Shipment -> Generate Invoice",
-      "count": 4
+      "count": 20000
     },
     {
       "path": "Create Purchase Order -> Approve Purchase Order -> Dispatch Shipment -> Generate Invoice",
-      "count": 1
+      "count": 10000
     }
   ]
 }

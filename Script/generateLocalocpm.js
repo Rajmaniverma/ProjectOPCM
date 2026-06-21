@@ -8,8 +8,8 @@ const suppliers = [
 ];
 
 // Create folder if it doesn't exist
-if (!fs.existsSync("./public/localOCPM")) {
-  fs.mkdirSync("./public/localOCPM", {
+if (!fs.existsSync("../public/localOCPM")) {
+  fs.mkdirSync("../public/localOCPM", {
     recursive: true,
   });
 }
@@ -18,7 +18,7 @@ suppliers.forEach((supplier) => {
   try {
     const ocelData = JSON.parse(
       fs.readFileSync(
-        `./public/ocel/${supplier}-ocel.json`,
+        `../public/ocel/${supplier}-ocel.json`,
         "utf8"
       )
     );
@@ -26,7 +26,7 @@ suppliers.forEach((supplier) => {
     const summary = analyzeOCEL(ocelData);
 
     fs.writeFileSync(
-      `./public/localOCPM/${supplier}-localOCPM.json`,
+      `../public/localOCPM/${supplier}-localOCPM.json`,
       JSON.stringify(summary, null, 2)
     );
 

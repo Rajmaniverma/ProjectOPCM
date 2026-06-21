@@ -8,15 +8,15 @@ const suppliers = [
 ];
 
 // Create output folder if not exists
-if (!fs.existsSync("./public/ocel")) {
-  fs.mkdirSync("./public/ocel", { recursive: true });
+if (!fs.existsSync("../public/ocel")) {
+  fs.mkdirSync("../public/ocel", { recursive: true });
 }
 
 suppliers.forEach((supplier) => {
   try {
     const rawData = JSON.parse(
       fs.readFileSync(
-        `./public/data/${supplier}.json`,
+        `../public/data/${supplier}.json`,
         "utf8"
       )
     );
@@ -24,7 +24,7 @@ suppliers.forEach((supplier) => {
     const ocelData = generateOCEL(rawData);
 
     fs.writeFileSync(
-      `./public/ocel/${supplier}-ocel.json`,
+      `../public/ocel/${supplier}-ocel.json`,
       JSON.stringify(ocelData, null, 2)
     );
 

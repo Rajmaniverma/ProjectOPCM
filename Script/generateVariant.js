@@ -9,9 +9,9 @@ const suppliers = [
   "supplierC"
 ];
 
-if (!fs.existsSync("./public/variants")) {
+if (!fs.existsSync("../public/variants")) {
   fs.mkdirSync(
-    "./public/variants",
+    "../public/variants",
     { recursive: true }
   );
 }
@@ -20,7 +20,7 @@ suppliers.forEach((supplier) => {
 
   const processData = JSON.parse(
     fs.readFileSync(
-      `./public/process/${supplier}-process.json`,
+      `../public/process/${supplier}-process.json`,
       "utf8"
     )
   );
@@ -29,7 +29,7 @@ suppliers.forEach((supplier) => {
     analyzeVariants(processData);
 
   fs.writeFileSync(
-    `./public/variants/${supplier}-variants.json`,
+    `../public/variants/${supplier}-variants.json`,
     JSON.stringify(
       variantData,
       null,

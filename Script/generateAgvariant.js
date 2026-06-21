@@ -17,7 +17,7 @@ try {
 
     const data = JSON.parse(
       fs.readFileSync(
-        `./public/variants/${supplier}-variants.json`,
+        `../public/variants/${supplier}-variants.json`,
         "utf8"
       )
     );
@@ -32,17 +32,17 @@ try {
 
   if (
     !fs.existsSync(
-      "./public/aggregated"
+      "../public/aggregated"
     )
   ) {
     fs.mkdirSync(
-      "./public/aggregated",
+      "../public/aggregated",
       { recursive: true }
     );
   }
 
   fs.writeFileSync(
-    "./public/aggregated/global-variants.json",
+    "../public/aggregated/global-variants.json",
     JSON.stringify(
       aggregatedVariants,
       null,

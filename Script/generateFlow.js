@@ -8,7 +8,7 @@ const suppliers = [
   "supplierC"
 ];
 
-if (!fs.existsSync("./public/process")) {
+if (!fs.existsSync("../public/process")) {
   fs.mkdirSync("./public/process", {
     recursive: true
   });
@@ -17,7 +17,7 @@ if (!fs.existsSync("./public/process")) {
 suppliers.forEach((supplier) => {
   const ocel = JSON.parse(
     fs.readFileSync(
-      `./public/ocel/${supplier}-ocel.json`,
+      `../public/ocel/${supplier}-ocel.json`,
       "utf8"
     )
   );
@@ -26,7 +26,7 @@ suppliers.forEach((supplier) => {
     generateProcessFlow(ocel);
 
   fs.writeFileSync(
-    `./public/process/${supplier}-process.json`,
+    `../public/process/${supplier}-process.json`,
     JSON.stringify(
       processFlow,
       null,

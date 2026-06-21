@@ -41,10 +41,22 @@ export function analyzeOCEL(ocel) {
       ? totalLeadTime / purchaseOrders.length
       : 0;
 
-  const supplierScore =
-    100 -
-    delayedShipments.length * 10 -
-    pendingInvoices.length * 5;
+const delayedRate =
+  (delayedShipments.length / shipments.length) * 100;
+
+const pendingRate =
+  (pendingInvoices.length / invoices.length) * 100;
+
+const leadTimePenalty =
+  avgLeadTime * 2;
+
+const supplierScore =
+  100 -
+  delayedRate * 0.5 -
+  pendingRate * 0.3 -
+  leadTimePenalty;
+
+
 
   return {
     supplier:

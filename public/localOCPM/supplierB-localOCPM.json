@@ -1,10 +1,10 @@
 {
   "supplier": "Supplier B",
-  "totalOrders": 2,
-  "totalShipments": 2,
-  "totalInvoices": 2,
-  "delayedShipments": 1,
-  "pendingInvoices": 1,
-  "avgLeadTime": 1.08,
-  "supplierScore": 85
+  "totalOrders": 10000,
+  "totalShipments": 10000,
+  "totalInvoices": 10000,
+  "delayedShipments": 2538,
+  "pendingInvoices": 3308,
+  "avgLeadTime": 2.02,
+  "supplierScore": 73.3548
 }

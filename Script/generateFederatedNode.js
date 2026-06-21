@@ -8,8 +8,8 @@ const suppliers = [
 ];
 
 // Create folder
-if (!fs.existsSync("./public/federated")) {
-  fs.mkdirSync("./public/federated", {
+if (!fs.existsSync("../public/federated")) {
+  fs.mkdirSync("../public/federated", {
     recursive: true,
   });
 }
@@ -18,7 +18,7 @@ suppliers.forEach((supplier) => {
   try {
     const localData = JSON.parse(
       fs.readFileSync(
-        `./public/localOCPM/${supplier}-localOCPM.json`,
+        `../public/localOCPM/${supplier}-localOCPM.json`,
         "utf8"
       )
     );
@@ -27,7 +27,7 @@ suppliers.forEach((supplier) => {
       createFederatedNode(localData);
 
     fs.writeFileSync(
-      `./public/federated/${supplier}-node.json`,
+      `../public/federated/${supplier}-node.json`,
       JSON.stringify(federatedData, null, 2)
     );
 

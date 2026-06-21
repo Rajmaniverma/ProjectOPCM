@@ -11,7 +11,7 @@ const nodes = [];
 
 try {
   suppliers.forEach((supplier) => {
-    const filePath = `./public/federated/${supplier}-node.json`;
+    const filePath = `../public/federated/${supplier}-node.json`;
 
     const nodeData = JSON.parse(
       fs.readFileSync(filePath, "utf8")
@@ -23,14 +23,14 @@ try {
   const globalSummary = aggregateNodes(nodes);
 
   // Create aggregated folder if it doesn't exist
-  if (!fs.existsSync("./public/aggregated")) {
-    fs.mkdirSync("./public/aggregated", {
+  if (!fs.existsSync("../public/aggregated")) {
+    fs.mkdirSync("../public/aggregated", {
       recursive: true,
     });
   }
 
   fs.writeFileSync(
-    "./public/aggregated/global-summary.json",
+    "../public/aggregated/global-summary.json",
     JSON.stringify(globalSummary, null, 2)
   );
 

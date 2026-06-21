@@ -1,42 +1,47 @@
 {
-  "generatedAt": "2026-06-08T11:08:20.790Z",
+  "generatedAt": "2026-06-21T10:14:55.668Z",
   "totalSuppliers": 3,
   "networkKPIs": {
-    "totalOrders": 5,
-    "totalShipments": 5,
-    "totalInvoices": 5,
-    "delayedShipments": 3,
-    "pendingInvoices": 3,
-    "averageLeadTime": 1.78,
-    "averageSupplierScore": 85
+    "totalOrders": 30000,
+    "totalShipments": 30000,
+    "totalInvoices": 30000,
+    "delayedShipments": 11668,
+    "pendingInvoices": 13263,
+    "averageLeadTime": 2.5,
+    "averageSupplierScore": 62.29
   },
   "supplierRankings": [
     {
       "supplier": "Supplier A",
-      "score": 100,
-      "avgLeadTime": 1.04
+      "score": 73.5948,
+      "avgLeadTime": 2
     },
     {
       "supplier": "Supplier B",
-      "score": 85,
-      "avgLeadTime": 1.08
+      "score": 73.3548,
+      "avgLeadTime": 2.02
     },
     {
       "supplier": "Supplier C",
-      "score": 70,
-      "avgLeadTime": 3.23
+      "score": 39.92,
+      "avgLeadTime": 3.49
     }
   ],
   "bottlenecks": [
     {
+      "supplier": "Supplier A",
+      "delayedShipments": 2469,
+      "pendingInvoices": 3356
+    },
+    {
       "supplier": "Supplier B",
-      "delayedShipments": 1,
-      "pendingInvoices": 1
+      "delayedShipments": 2538,
+      "pendingInvoices": 3308
     },
     {
       "supplier": "Supplier C",
-      "delayedShipments": 2,
-      "pendingInvoices": 2
+      "delayedShipments": 6661,
+      "pendingInvoices": 6599
     }
   ]
 }
