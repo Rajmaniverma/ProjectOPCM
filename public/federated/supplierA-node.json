@@ -1,14 +1,14 @@
 {
   "nodeId": "supplier-a-node",
   "supplier": "Supplier A",
-  "generatedAt": "2026-06-21T10:04:08.814Z",
+  "generatedAt": "2026-06-21T11:09:01.585Z",
   "kpis": {
-    "totalOrders": 10000,
-    "totalShipments": 10000,
-    "totalInvoices": 10000,
-    "delayedShipments": 2469,
-    "pendingInvoices": 3356,
-    "avgLeadTime": 2,
-    "supplierScore": 73.5948
+    "totalOrders": 9674,
+    "totalShipments": 9674,
+    "totalInvoices": 9674,
+    "delayedShipments": 3303,
+    "pendingInvoices": 3267,
+    "avgLeadTime": 3.51,
+    "supplierScore": 65.78354351870993
   }
 }
